@@ -12,7 +12,7 @@ mem = snakemake.params.get("mem", "")
 mem = "-m {}".format(mem) if mem else ""
 
 outdir = path.basename(snakemake.output[0])
-prefix = path.splitext(snakemake.output[0])[0]
+prefix = path.splitext(outdir)[0]
 tmpdir = path.join(snakemake.params.get("tmpdir", outdir), prefix)
 
 shell(
