@@ -20,7 +20,7 @@ shell(
     "   --defline-seq '@$sn/$ri'"
     "   --defline-qual '+'"
     "   {extra}"
-    "   {input}"
-    "| {compressor} > {output}"
+    "   {snakemake.input}"
+    "| {compressor} > {snakemake.output}"
     ") {log}"
 )
