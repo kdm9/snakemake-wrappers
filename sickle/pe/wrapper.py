@@ -7,7 +7,7 @@ from snakemake.shell import shell
 
 # Placeholder for optional parameters
 extra = snakemake.params.get("extra", "")
-qual_type = snakemake.parameters.get("qual_type", "sanger")
+qual_type = snakemake.params.get("qual_type", "sanger")
 log = snakemake.log_fmt_shell()
 
 shell(
