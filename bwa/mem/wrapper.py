@@ -12,6 +12,8 @@ if rgid:
     rgsamp = snakemake.params.get('rgsample', rgid)
     rgid = "-R '@RG\\tID:{}\\tSM:{}'".format(rgid, rgsamp
 
+log = snakemake.log_fmt_shell()
+
 shell(
     "(bwa mem"
     "   {extra} {rgid}"
@@ -22,5 +24,5 @@ shell(
     "   -Sbh"
     "   -o {snakemake.output[0]}"
     "   - "
-    ") >{snakemake.log} 2>&1"
+    ") {log}"
 )

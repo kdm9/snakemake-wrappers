@@ -9,6 +9,7 @@ from snakemake.shell import shell
 
 extra = snakemake.params.get("extra", "")
 compressor = snakemake.params.get("mem", "gzip")
+log = snakemake.log_fmt_shell()
 
 shell(
     "(fastq-dump"
@@ -21,5 +22,5 @@ shell(
     "   {extra}"
     "   {input}"
     "| {compressor} > {output}"
-    ") >{snakemake.log} 2>&1"
+    ") {log}"
 )
