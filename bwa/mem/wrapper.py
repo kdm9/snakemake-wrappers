@@ -10,7 +10,7 @@ extra = snakemake.params.get('extra', '')
 rgid = snakemake.params.get('rgid', '')
 if rgid:
     rgsamp = snakemake.params.get('rgsample', rgid)
-    rgid = "-R '@RG\\tID:{}\\tSM:{}'".format(rgid, rgsamp
+    rgid = "-R '@RG\\tID:{}\\tSM:{}'".format(rgid, rgsamp)
 
 log = snakemake.log_fmt_shell()
 
