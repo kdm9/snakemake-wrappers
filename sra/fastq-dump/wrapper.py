@@ -8,7 +8,8 @@ from os import path
 from snakemake.shell import shell
 
 extra = snakemake.params.get("extra", "")
-compressor = snakemake.params.get("compressor", "gzip")
+compressor = snakemake.params.get("compress_prog", "gzip")
+readid = snakemake.params.get('readid', "@$sn/$ri")
 log = snakemake.log_fmt_shell()
 
 shell(
@@ -17,7 +18,7 @@ shell(
     "   --skip-technical"
     "   --stdout"
     "   --readids"
-    "   --defline-seq '@$sn/$ri'"
+    "   --defline-seq '{readid}'"
     "   --defline-qual '+'"
     "   {extra}"
     "   {snakemake.input}"
