@@ -8,7 +8,7 @@ from os import path
 from snakemake.shell import shell
 
 extra = snakemake.params.get("extra", "")
-compressor = snakemake.params.get("mem", "gzip")
+compressor = snakemake.params.get("compressor", "gzip")
 log = snakemake.log_fmt_shell()
 
 shell(
