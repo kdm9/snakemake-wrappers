@@ -10,7 +10,7 @@ from snakemake.shell import shell
 phred_enc_in = snakemake.params.get('phred_enc_in', '33')
 uncompress_prog = snakemake.params.get('uncompress_prog', 'zcat')
 compress_prog = snakemake.params.get('compress_prog', 'gzip')
-tmpdir = snakemake.params.get('tmpdir', '/tmp')
+tmpdir = snakemake.params.get('tmpdir', '${TMPDIR:-/tmp}')
 minqual = snakemake.params.get('minimum_quality', '20')
 minlen = snakemake.params.get('minimum_length', '50')
 tag = str(uuid())
@@ -32,6 +32,7 @@ shell(
     "   --qualitybase-output 33" # always output in sanger fmt
     "   --combined-output"
     "   --collapse"
+    "   --threads {snakemake.threads}"
     "   --settings {tmpdir}/{tag}_ar_report.txt"
     " && cat {tmpdir}/{tag}_ar_report.txt"  # output to log file
     " && ( cat "
