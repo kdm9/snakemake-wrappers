@@ -42,7 +42,7 @@ shell(
     "   -q {minqual}"
     "   -t sanger"
     "   -l {minlen}"
-    "   -o >({compress_prog} > {snakemake.output.reads})"
+    "   -o >({compress_prog} > {snakemake.output})"
     " ) && rm -rf {tmpdir}/{tag}*"
     ") {log}"
 )
